@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Formulaire Todo Liste</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Tâche</ion-label>
+      <ion-input type="text" name="taskName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Date</ion-label>
+      <ion-input type="text" name="createdAt"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-button expand='block' size ='large' (click)="addTask()">Valider</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
