@@ -12,7 +12,7 @@ export class TodoFormPage implements OnInit {
 
   public task = {
     taskName: '',
-    dateString: (new Date()).toDateString(),
+    dateString: (new Date()).toISOString(),
     done: false
   };
   //Injection de dépendance (httpClientModule, Router)
