@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,8 +15,8 @@ export class TodoFormPage implements OnInit {
     dateString: (new Date()).toDateString(),
     done: false
   };
-  //Injection de dépendance (httpClientModule)
-  constructor(private httpClient: HttpClientModule) { }
+  //Injection de dépendance (httpClientModule, Router)
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit() {
   }
@@ -24,6 +25,7 @@ export class TodoFormPage implements OnInit {
     this.httpClient.post("http://localhost:3000/task/new", this.task)
       .subscribe(
         () => {
+          this.router.navigateByUrl('/home');
           console.log("ok");
         },
         (err) => {
