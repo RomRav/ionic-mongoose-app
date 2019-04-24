@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>Formulaire Todo Liste</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -8,16 +11,17 @@
   <ion-list>
     <ion-item>
       <ion-label position="floating">Tâche</ion-label>
-      <ion-input type="text" name="taskName"></ion-input>
+      <ion-input type="text" [(ngModel)]="task.taskName"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Date</ion-label>
-      <ion-input type="text" name="createdAt"></ion-input>
+      <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="task.dateString"></ion-datetime>
     </ion-item>
 
-    <ion-item>
-      <ion-button expand='block' size ='large' (click)="addTask()">Valider</ion-button>
-    </ion-item>
   </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-button expand='block' size='large' (click)="persistTasks()">Valider</ion-button>
+</ion-footer>
