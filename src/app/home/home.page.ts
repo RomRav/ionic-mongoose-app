@@ -12,6 +12,7 @@ export class HomePage {
 
   public taskList: Array<any> = [];
 
+
   //Injection de dépendance (httpClientModule, Router)
   constructor(private httpClient: HttpClient, private router: Router) { }
 
@@ -28,7 +29,6 @@ export class HomePage {
 
   //Suppression d'une tâche
   deleteTask(id) {
-    console.log(id);
     this.httpClient.delete('http://localhost:3000/task/' + id)
       .subscribe(
         () => {
@@ -38,5 +38,15 @@ export class HomePage {
       );
   };
 
+  //Gestion et persistance du checkbox !!!A FINIR!!!!
+  switchCheck(task) {
+    this.httpClient.put('http://localhost:3000/task/', task)
+      .subscribe(
+        () => {
+          this.ionViewDidEnter();
+        },
+        err => console.log(err)
+      );
 
+  }
 }

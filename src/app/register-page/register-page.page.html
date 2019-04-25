@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Inscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item>
+      <ion-label position="floating">Identifiant</ion-label>
+      <ion-input type="text" [(ngModel)]="userInput.login"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input type="password" [(ngModel)]="userInput.password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input type="text" [(ngModel)]="userInput.userName"></ion-input>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-button expand='block' size='large' (click)="validateForm()">Valider</ion-button>
+</ion-footer>

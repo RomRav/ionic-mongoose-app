@@ -24,6 +24,16 @@ export class AppComponent {
       title: 'Formulaire todo liste',
       url: '/todo-form',
       icon: 'checkbox'
+    },
+    {
+      title: 'Inscription',
+      url: '/register-page',
+      icon: 'person-add'
+    },
+    {
+      title: 'Authentification',
+      url: '/login-form-page',
+      icon: 'person'
     }
   ];
 

@@ -15,8 +15,18 @@ const routes: Routes = [
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
   },
-  { path: 'todo-form', 
-  loadChildren: './todo-form/todo-form.module#TodoFormPageModule' }
+  {
+    path: 'todo-form',
+    loadChildren: './todo-form/todo-form.module#TodoFormPageModule'
+  },
+  {
+    path: 'register-page',
+    loadChildren: './register-page/register-page.module#RegisterPagePageModule'
+  },
+  {
+    path: 'login-form-page', 
+    loadChildren: './login-form-page/login-form-page.module#LoginFormPagePageModule'
+  }
 ];
 
 @NgModule({
@@ -25,4 +35,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
