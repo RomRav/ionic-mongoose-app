@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UserService } from '../service/user.service';
 
 
 @Component({
@@ -11,10 +12,16 @@ import { Router } from '@angular/router';
 export class HomePage {
 
   public taskList: Array<any> = [];
-
+  public user;
 
   //Injection de dépendance (httpClientModule, Router)
-  constructor(private httpClient: HttpClient, private router: Router) { }
+  constructor(
+    private httpClient: HttpClient,
+    private router: Router,
+    private userService: UserService) {
+
+    this.user = userService.getUser();
+  }
 
 
   //Affichage des tâches
