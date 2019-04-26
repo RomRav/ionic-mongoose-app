@@ -31,13 +31,13 @@ export class LoginFormPagePage implements OnInit {
     this.httpCLient.post('hhtp://localhost:3000/login', this.loginInfo)
       .subscribe(
         (response: any) => {
-          if (response.found) {
-            this.userService.setUser(response.data);
+          if (response.success) {
+            this.userService.setUser(response.user);
             this.router.navigateByUrl('/home');
           } else {
             let myToast = this.toastCtrl.create(
               {
-                message: "Infos d'authentification incorrect :/",
+                message: "Infos d'authentification incorrect :",
                 duration: 3200
               }
             );
