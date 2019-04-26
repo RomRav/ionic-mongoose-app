@@ -27,7 +27,7 @@
 
       <ion-item>
         <ion-label> {{task.taskName}}</ion-label>
-        <ion-checkbox [(ngModel)]=task.done (change)="switchCheck(task)"></ion-checkbox>
+        <ion-checkbox [(ngModel)]=task.done (ionChange)="switchCheck(task)"></ion-checkbox>
       </ion-item>
 
 

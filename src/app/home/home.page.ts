@@ -45,7 +45,7 @@ export class HomePage {
       );
   };
 
-  //Gestion et persistance du checkbox !!!A FINIR!!!!
+  //Gestion et persistance du checkbox
   switchCheck(task) {
     this.httpClient.put('http://localhost:3000/task/', task)
       .subscribe(

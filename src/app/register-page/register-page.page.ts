@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { UserService } from '../service/user.service';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register-page',
@@ -21,7 +22,8 @@ export class RegisterPagePage implements OnInit {
   constructor(
     private httpClient: HttpClient,
     private user: UserService,
-    private router: Router) { }
+    private router: Router,
+    private toastCtrl: ToastController) { }
 
   ngOnInit() {
   }
@@ -40,8 +42,16 @@ export class RegisterPagePage implements OnInit {
       this.httpClient.post("http://localhost:3000/register", this.userInput)
         .subscribe(
           (response: any) => {
-            this.user.setUser(response.data);
-            this.router.navigateByUrl('/home');
+            console.log(response);
+            if (response.data) {
+              this.user.setUser(response.data);
+              this.router.navigateByUrl('/home');
+            } else {
+              this.toastCtrl.create(
+                { message: "Ce compte existe déjà", duration: 2000 }
+              ).then(toast => toast.present());
+            }
+
           },
           err => console.log(err)
         );
